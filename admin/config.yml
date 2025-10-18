@@ -1,9 +1,22 @@
 backend:
   name: git-gateway
-  branch: master # o main
+  branch: master
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
-# Colecciones vacías (debería cargar el panel en blanco)
-collections: []
+collections:
+  - name: "post"
+    label: "Post"
+    folder: "_posts"
+    sort: "date:desc"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Categories", name: "categories", widget: "string", required: false}
+    # La clave 'meta' debe estar al mismo nivel que 'fields' y 'slug'.
+    meta:
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
