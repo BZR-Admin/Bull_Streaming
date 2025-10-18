@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: master # VERIFICA: Si es 'main', cámbialo aquí.
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
@@ -17,6 +17,4 @@ collections:
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Categories", name: "categories", widget: "string", required: false}
-    # La clave 'meta' debe estar al mismo nivel que 'fields' y 'slug'.
-    meta:
-      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
+    # La sección 'meta' ha sido eliminada.
